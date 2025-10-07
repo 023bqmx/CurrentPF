@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>tnksrp</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
+
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="icon" href="BomMe.png" />
+
+</head>
+<body>
+  <!-- ฝนตกพรำๆ (อยู่ใต้เส้นเมาส์) -->
+  <canvas id="rain" aria-hidden="true"></canvas>
+  <!-- เส้นตามเมาส์ -->
+  <canvas id="mouse-trail" aria-hidden="true"></canvas>
+
+  <!-- Navbar ชิดขอบ -->
+  <header class="site-header">
+    <div class="nav nav-edge">
+      <a class="brand" href="#profile" aria-label="Go to Profile">
+        <img src="BomMe.png" alt="Site logo" class="brand-logo" width="60" height="60">
+        <span class="brand-text">" Thanakrit Siriphol "</span>
+      </a>
+      <nav>
+        <ul class="nav-list">
+          <li><a href="#profile" class="nav-link">Profile</a></li>
+          <li><a href="#skills" class="nav-link">Skill</a></li>
+          <li><a href="#competitions" class="nav-link">Competitions</a></li>
+          <li><a href="#contact" class="nav-link">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- PROFILE -->
+    <section id="profile" class="section">
+      <div class="container two-col">
+        <div class="profile-left">
+          <!-- หุ่นยนต์: ใหญ่ขึ้น + ขยับไปซ้าย, โบกมือ/เด้ง/หมุนกลับ -->
+          <div class="robot-card" role="img" aria-label="Animated robot waving" id="robot">
+            <div class="robot-spin">
+              <div class="robot-bob">
+                <svg class="robot-svg" viewBox="0 0 200 200">
+                  <ellipse cx="100" cy="170" rx="48" ry="12" fill="#0a0f14" opacity="0.55"/>
+                  <line x1="100" y1="22" x2="100" y2="10" stroke="#58a6ff" stroke-width="3" />
+                  <circle cx="100" cy="8" r="4" fill="#58a6ff"/>
+                  <!-- หัว -->
+                  <rect x="55" y="26" width="90" height="66" rx="14" fill="#1f2630" stroke="#30363d" stroke-width="2"/>
+                  <!-- ตา -->
+                  <circle cx="82" cy="58" r="7" fill="#c9d1d9"/>
+                  <circle cx="118" cy="58" r="7" fill="#c9d1d9"/>
+                  <!-- ปาก (กลาง/ยิ้ม) -->
+                  <rect id="mouth-neutral" x="76" y="74" width="48" height="5" rx="2.5" fill="#2ea043" opacity="0.95"/>
+                  <path id="mouth-smile" d="M78 78 Q100 92 122 78" stroke="#2ea043" stroke-width="4.4" fill="none" stroke-linecap="round" opacity="0"/>
+                  <!-- ลำตัว -->
+                  <rect x="42" y="92" width="116" height="90" rx="16" fill="#161b22" stroke="#30363d" stroke-width="2"/>
+                  <rect x="64" y="114" width="72" height="48" rx="9" fill="#0d1117" stroke="#30363d"/>
+                  <circle cx="82" cy="138" r="6" fill="#58a6ff"/>
+                  <circle cx="100" cy="138" r="6" fill="#3fb950"/>
+                  <circle cx="118" cy="138" r="6" fill="#e3b341"/>
+                  <!-- แขนซ้าย -->
+                  <g class="arm arm-left">
+                    <circle cx="42" cy="110" r="7" fill="#30363d"/>
+                    <rect x="20" y="104" width="28" height="13" rx="7" fill="#1f2630" stroke="#30363d"/>
+                    <rect x="8" y="112" width="20" height="13" rx="7" fill="#1f2630" stroke="#30363d"/>
+                  </g>
+                  <!-- แขนขวา (โบกมือ) -->
+                  <g class="arm arm-right">
+                    <circle cx="158" cy="110" r="7" fill="#30363d"/>
+                    <g class="forearm">
+                      <rect x="158" y="104" width="28" height="13" rx="7" fill="#1f2630" stroke="#30363d"/>
+                      <rect x="184" y="96" width="20" height="13" rx="7" fill="#1f2630" stroke="#30363d"/>
+                    </g>
+                  </g>
+                </svg>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="profile-right">
+          <h1 class="title">Hi! I'm<span class="accent"> Thanakrit Siriphol (Bom)</span></h1>
+          <p class="lead">
+             <b>Game Developer , Web Developer</b>
+                <br>I'm a high school student passionate about programming and technology. I enjoy creating games and web applications, 
+                constantly learning new skills to enhance my abilities. Nice to meet you!
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- SKILLS -->
+    <section id="skills" class="section">
+      <div class="container">
+        <h2 class="section-title">Skills & Tools</h2>
+
+        <div class="skill-grid">
+          <div class="skill-card" data-tilt>
+            <i class="devicon-csharp-plain colored skill-icon"></i>
+            <div class="skill-name">C#</div>
+          </div>
+          <div class="skill-card" data-tilt>
+            <img src="pylogo.png" alt="Site logo" class="brand-logo" width="40" height="40">
+            <div class="skill-name">Python</div>
+          </div>
+          <div class="skill-card" data-tilt>
+            <i class="devicon-html5-plain colored skill-icon"></i>
+            <div class="skill-name">HTML</div>
+          </div>
+          <div class="skill-card" data-tilt>
+            <i class="devicon-css3-plain colored skill-icon"></i>
+            <div class="skill-name">CSS</div>
+          </div>
+          <div class="skill-card" data-tilt>
+            <i class="devicon-javascript-plain colored skill-icon"></i>
+            <div class="skill-name">JavaScript</div>
+          </div>
+          <div class="skill-card" data-tilt>
+            <i class="devicon-react-original colored skill-icon"></i>
+            <div class="skill-name">ReactJs</div>
+          </div>
+          <div class="skill-card" data-tilt>
+            <img src="unity.png" alt="Site logo" class="brand-logo" width="50" height="50">
+            
+            <div class="skill-name">Unity</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- COMPETITIONS -->
+    <section id="competitions" class="section">
+      <div class="container">
+        <h2 class="section-title">Competitions</h2>
+
+        <div class="comp-row">
+          <article class="comp-card" data-tilt>
+            <div class="comp-thumb" style="background-image:url('comp1.PNG');"></div>
+
+            <div class="comp-body">
+              <h3 class="comp-title">Web Dev Competition</h3>
+              <p class="comp-desc">เข้ารอบ 24 ทีมสุดท้ายจาก 100+ทีม ในหัวข้อ Ecommerce</p>
+              <div class="comp-award">🏆 Finalist</div>
+            </div>
+          </article>
+
+          <article class="comp-card" data-tilt>
+            <div class="comp-thumb" style="background-image:url('comp2.PNG');"></div>
+
+            <div class="comp-body">
+              <h3 class="comp-title">K-Engineering IoT Hackathon</h3>
+              <p class="comp-desc">ระบบบำบัดน้ำเสียชุมชนโดยการใช้ AI เพื่อลดการปล่อยก๊าซเรือนกระจก ได้รับเงินรางวัลระดับประเทศ รองชนะเลิศอันดับ 2 เป็นจำนวนเงิน 2,000 บาท</p>
+              <div class="comp-award">🥉 3rd place</div>
+            </div>
+          </article>
+
+          <article class="comp-card" data-tilt>
+            <div class="comp-thumb" style="background-image:url('comp3.PNG');"></div>
+            <div class="comp-body">
+              <h3 class="comp-title">GAME JAM SPECIAL 2</h3>
+              <p class="comp-desc">ผมและทีมมีโอกาสเข้าร่วมแข่งขัน Game Jam กับ Hamster Hub และคว้าลำดับที่ 5 มาในงาน Special ซึ่งเป็นการแข่งสร้างเกมในหัวข้อ “You are the system” ภายใน 48 ชั่วโมง</p>
+              <div class="comp-award">🥉 5th place</div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" class="section">
+      <div class="container">
+        <h2 class="section-title">Contact</h2>
+
+        <div class="contact-row">
+          <a class="contact-card" href="https://www.instagram.com/02.3bqmx" target="_blank" rel="noopener">
+            <svg class="social-ico" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5zm5 5a5 5 0 1 0 .001 10.001A5 5 0 0 0 12 7zm6.5-.75a1.25 1.25 0 1 0 0 2.5 1.25 1.25 0 0 0 0-2.5z"/>
+            </svg>
+            <span>@02.3bqmx</span>
+          </a>
+          <a class="contact-card" href="https://www.facebook.com/thanakrit.siriphol?locale=th_TH" target="_blank" rel="noopener">
+            <svg class="social-ico" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M22 12a10 10 0 1 0-11.6 9.9v-7h-2.4V12h2.4V9.7c0-2.4 1.4-3.7 3.5-3.7.997 0 2.04.177 2.04.177v2.24h-1.15c-1.13 0-1.48.7-1.48 1.42V12h2.52l-.4 2.9h-2.12v7A10 10 0 0 0 22 12z"/>
+            </svg>
+            <span>Thanakrit Siriphol</span>
+          </a>
+          <a class="contact-card" href="https://discord.com/users/867939037456007179" target="_blank" rel="noopener">
+            <svg class="social-ico" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M20 4a16 16 0 0 0-4-1l-.2.4A13 13 0 0 1 16.9 5 13.8 13.8 0 0 0 12 4a13.8 13.8 0 0 0-4.9 1A13 13 0 0 1 8.2 3L8 3a16 16 0 0 0-4 1C2.3 7.6 1.9 11 2 14c1.7 1.3 3.6 2.1 5.6 2.5l.7-1.2c-.4-.2-.8-.4-1.2-.7l.3-.2a8.7 8.7 0 0 0 8.2 0l.3.2c-.4.3-.8.5-1.2.7l.7 1.2A15 15 0 0 0 22 14c.1-3-.3-6.4-2-10zM9.7 13.5a1.9 1.9 0 1 1 0-3.8 1.9 1.9 0 0 1 0 3.8z"/>
+            </svg>
+            <span>tnksrp</span>
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <span>© 2025 Thanakrit Siriphol</span>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

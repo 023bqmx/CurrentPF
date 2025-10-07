@@ -1,0 +1,143 @@
+/* ===== GitHub Dark Theme ===== */
+:root{
+  --bg: #0d1117;
+  --panel: #161b22;
+  --stroke: #30363d;
+  --text: #c9d1d9;
+  --muted: #8b949e;
+  --accent: #58a6ff;
+  --green: #3fb950;
+  --shadow: 0 10px 30px rgba(0,0,0,.35);
+}
+
+*{ box-sizing: border-box; }
+html{ scroll-behavior: smooth; }
+body{
+  margin: 0;
+  font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Noto Sans Thai", Arial, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+}
+
+/* ===== Containers ===== */
+.container{ width: min(1140px, 92vw); margin: 0 auto; padding-inline: 12px; }
+.section{
+  padding: 96px 0; scroll-margin-top: 80px;
+  opacity: 0; transform: translateY(12px);
+  transition: opacity .6s ease, transform .6s ease;
+}
+.section.visible{ opacity: 1; transform: translateY(0); }
+.section-title{ font-size: 28px; margin: 0 0 28px; letter-spacing: .3px; }
+
+/* ===== Header / Navbar (ชิดมุมเว็บ) ===== */
+.site-header{
+  position: sticky; top: 0; z-index: 60;
+  background: rgba(13,17,23,.85);
+  backdrop-filter: blur(6px);
+  border-bottom: 1px solid var(--stroke);
+}
+.nav{ display: flex; align-items: center; justify-content: space-between; height: 64px; }
+.nav-edge{ width: 100%; max-width: none; margin: 0; padding: 0 18px; }
+.brand{ display: flex; align-items: center; gap: 10px; text-decoration: none; color: var(--text); font-weight: 700; }
+.brand-text{ letter-spacing: .2px; }
+.nav-list{ display: flex; gap: 18px; list-style: none; margin: 0; padding: 0; }
+.nav-link{
+  color: var(--muted); text-decoration: none; padding: 8px 10px; border-radius: 8px;
+  transition: color .2s ease, background .2s ease, transform .12s ease;
+}
+.nav-link:hover{ color: var(--text); background: #0f1621; transform: translateY(-1px); }
+.nav-link.active{ color: var(--accent); background: #0b1320; }
+
+/* ===== Profile (หุ่นยนต์ใหญ่ + ขยับซ้าย) ===== */
+.two-col{
+  display: grid;
+  grid-template-columns: 1fr 1fr;   /* ซ้ายใหญ่ขึ้น */
+  gap: 28px;
+}
+.profile-left{ transform: translateX(-150px); } /* ขยับซ้ายอีก */
+.robot-card{
+  width: 100%;
+  background: radial-gradient(140px 120px at 60% 40%, #1b2330 0%, #0e141c 60%, #0b0f15 100%);
+  display: grid; place-items: center; overflow: hidden;
+}
+.robot-svg{ width: 96%; height: auto; }  /* ใหญ่ขึ้น */
+.robot-spin{ animation: spinBack 7s ease-in-out infinite; transform-origin: 100px 110px; }
+.robot-bob{ animation: bob 3s ease-in-out infinite; }
+.arm-right{ transform-origin: 158px 110px; animation: wave 1.4s ease-in-out infinite; }
+
+@keyframes bob { 0%,100%{ transform: translateY(0) } 50%{ transform: translateY(-3px) } }
+@keyframes wave {
+  0%{ transform: rotate(0deg) } 20%{ transform: rotate(-25deg) } 40%{ transform: rotate(10deg) }
+  60%{ transform: rotate(-18deg) } 80%{ transform: rotate(6deg) } 100%{ transform: rotate(0deg) }
+}
+@keyframes spinBack { 0%{ rotate: 0deg } 40%{ rotate: 360deg } 100%{ rotate: 0deg } }
+
+/* คลิกแล้ว “ยิ้ม” */
+#mouth-neutral, #mouth-smile{ transition: opacity .18s ease; }
+.robot-card.smile #mouth-neutral{ opacity: 0; }
+.robot-card.smile #mouth-smile{ opacity: 1; }
+
+.title{ margin: 0 0 10px; font-size: 36px; }
+.accent{ color: var(--accent); }
+.lead{ color: var(--muted); line-height: 1.75; font-size: 16px; }
+
+/* ===== Skills ===== */
+.skill-grid{ display: grid; grid-template-columns: repeat(7, minmax(88px,1fr)); gap: 16px; }
+.skill-card{
+  background: var(--panel); border: 1px solid var(--stroke); border-radius: 14px;
+  padding: 14px 10px 12px; display: grid; place-items: center; gap: 10px;
+  transition: transform .12s ease, box-shadow .2s ease, border-color .2s ease; box-shadow: var(--shadow);
+}
+.skill-card:hover{ transform: translateY(-4px); border-color: #3a90ff55; box-shadow: 0 10px 30px rgba(21,126,255,.15); }
+.skill-icon{ font-size: 40px; }
+.skill-name{ font-size: 13px; color: var(--muted); text-align: center; }
+
+/* ===== Competitions ===== */
+.comp-row{ display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+.comp-card{
+  display: grid; grid-template-rows: 170px auto;
+  background: var(--panel); border: 1px solid var(--stroke); border-radius: 16px;
+  overflow: hidden; transition: transform .16s ease, box-shadow .24s ease, border-color .2s ease; box-shadow: var(--shadow);
+}
+.comp-card:hover{ transform: translateY(-6px); border-color: #3fb95066; box-shadow: 0 14px 38px rgba(63,185,80,.18); }
+.comp-thumb{ background-size: cover; background-position: center; border-bottom: 1px solid var(--stroke); }
+.comp-body{ padding: 14px 14px 16px; }
+.comp-title{ margin: 0 0 6px; font-size: 18px; }
+.comp-desc{ margin: 0 0 10px; color: var(--muted); line-height: 1.6; }
+.comp-award{ display: inline-block; background: #152a19; border: 1px solid #2ea043; color: #7ee787; padding: 4px 8px; border-radius: 8px; font-size: 12px; }
+
+/* ===== Contact ===== */
+.contact-row{ display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+.contact-card{
+  display: flex; align-items: center; gap: 10px; background: var(--panel); border: 1px solid var(--stroke);
+  border-radius: 14px; padding: 12px 14px; color: var(--text); text-decoration: none; transition: transform .12s ease, border-color .2s ease, background .2s ease; box-shadow: var(--shadow);
+}
+.contact-card:hover{ transform: translateY(-3px); border-color: #7ee78766; background: #0f1a13; }
+.social-ico{ width: 22px; height: 22px; fill: #b6c2cf; }
+
+/* ===== Footer ===== */
+.site-footer{ border-top: 1px solid var(--stroke); padding: 28px 0; color: var(--muted); text-align: center; }
+
+/* ===== Responsive ===== */
+@media (max-width: 980px){
+  .two-col{ grid-template-columns: 1fr; }
+  .profile-left{ transform: none; }
+  .skill-grid{ grid-template-columns: repeat(4, 1fr); }
+  .comp-row{ grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 620px){
+  .skill-grid{ grid-template-columns: repeat(3, 1fr); }
+  .comp-row{ grid-template-columns: 1fr; }
+  .contact-row{ grid-template-columns: 1fr; }
+}
+
+/* ===== Canvases ===== */
+#rain, #mouse-trail{
+  position: fixed; inset: 0; pointer-events: none;
+}
+#rain{ z-index: 56; }         /* ฝนอยู่เหนือคอนเทนต์นิดหน่อยแต่ใต้ navbar */
+#mouse-trail{ z-index: 1000; } /* เส้นตามเมาส์อยู่บนสุด */
+
+html, body, a, button, [role="button"] {
+  cursor: url("cursor.png") 6 4, auto;
+}
