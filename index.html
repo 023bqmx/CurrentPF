@@ -39,47 +39,26 @@
     <section id="profile" class="section">
       <div class="container two-col">
         <div class="profile-left">
-          <!-- หุ่นยนต์: ใหญ่ขึ้น + ขยับไปซ้าย, โบกมือ/เด้ง/หมุนกลับ -->
-          <div class="robot-card" role="img" aria-label="Animated robot waving" id="robot">
-            <div class="robot-spin">
-              <div class="robot-bob">
-                <svg class="robot-svg" viewBox="0 0 200 200">
-                  <ellipse cx="100" cy="170" rx="48" ry="12" fill="#0a0f14" opacity="0.55"/>
-                  <line x1="100" y1="22" x2="100" y2="10" stroke="#58a6ff" stroke-width="3" />
-                  <circle cx="100" cy="8" r="4" fill="#58a6ff"/>
-                  <!-- หัว -->
-                  <rect x="55" y="26" width="90" height="66" rx="14" fill="#1f2630" stroke="#30363d" stroke-width="2"/>
-                  <!-- ตา -->
-                  <circle cx="82" cy="58" r="7" fill="#c9d1d9"/>
-                  <circle cx="118" cy="58" r="7" fill="#c9d1d9"/>
-                  <!-- ปาก (กลาง/ยิ้ม) -->
-                  <rect id="mouth-neutral" x="76" y="74" width="48" height="5" rx="2.5" fill="#2ea043" opacity="0.95"/>
-                  <path id="mouth-smile" d="M78 78 Q100 92 122 78" stroke="#2ea043" stroke-width="4.4" fill="none" stroke-linecap="round" opacity="0"/>
-                  <!-- ลำตัว -->
-                  <rect x="42" y="92" width="116" height="90" rx="16" fill="#161b22" stroke="#30363d" stroke-width="2"/>
-                  <rect x="64" y="114" width="72" height="48" rx="9" fill="#0d1117" stroke="#30363d"/>
-                  <circle cx="82" cy="138" r="6" fill="#58a6ff"/>
-                  <circle cx="100" cy="138" r="6" fill="#3fb950"/>
-                  <circle cx="118" cy="138" r="6" fill="#e3b341"/>
-                  <!-- แขนซ้าย -->
-                  <g class="arm arm-left">
-                    <circle cx="42" cy="110" r="7" fill="#30363d"/>
-                    <rect x="20" y="104" width="28" height="13" rx="7" fill="#1f2630" stroke="#30363d"/>
-                    <rect x="8" y="112" width="20" height="13" rx="7" fill="#1f2630" stroke="#30363d"/>
-                  </g>
-                  <!-- แขนขวา (โบกมือ) -->
-                  <g class="arm arm-right">
-                    <circle cx="158" cy="110" r="7" fill="#30363d"/>
-                    <g class="forearm">
-                      <rect x="158" y="104" width="28" height="13" rx="7" fill="#1f2630" stroke="#30363d"/>
-                      <rect x="184" y="96" width="20" height="13" rx="7" fill="#1f2630" stroke="#30363d"/>
-                    </g>
-                  </g>
-                </svg>
+          <!-- Carousel รูปภาพ (แทนหุ่นยนต์เดิม) -->
+          <div class="carousel-card" aria-roledescription="carousel" aria-label="Portfolio images">
+            <button class="carousel-btn prev" aria-label="Previous image">‹</button>
+
+            <div class="carousel-viewport" tabindex="0">
+              <div class="carousel-track">
+                <!-- ใส่รูปตามต้องการ (อย่างน้อย 3 รูป) -->
+                <img src="bom1.jpg" class="carousel-slide" alt="Preview 1">
+                <img src="bom2.jpg" class="carousel-slide" alt="Preview 2">
+                <img src="bom3.jpg" class="carousel-slide" alt="Preview 3">
               </div>
             </div>
+
+            <button class="carousel-btn next" aria-label="Next image">›</button>
+
+            <!-- ตัวชี้สถานะ (จะถูกอัปเดตอัตโนมัติด้วย JS) -->
+            <div class="carousel-dots" aria-hidden="true"></div>
           </div>
         </div>
+
 
         <div class="profile-right">
           <h1 class="title">Hi! I'm<span class="accent"> Thanakrit Siriphol (Bom)</span></h1>

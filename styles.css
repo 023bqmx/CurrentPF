@@ -141,3 +141,75 @@ body{
 html, body, a, button, [role="button"] {
   cursor: url("cursor.png") 6 4, auto;
 }
+
+/* ===== Carousel (แทน robot-card เดิม) ===== */
+.carousel-card{
+  width: 100%;
+  background: radial-gradient(140px 120px at 60% 40%, #1b2330 0%, #0e141c 60%, #0b0f15 100%);
+  border: 1px solid var(--stroke);
+  border-radius: 16px;
+  position: relative;
+  overflow: hidden;
+  box-shadow: var(--shadow);
+}
+
+/* ใส่สัดส่วนภาพให้คงที่และยืดหยุ่น */
+.carousel-viewport{
+  width: 100%;
+  aspect-ratio: 16 / 12; /* ปรับได้ตามแนวภาพ 16/9, 4/3 ฯลฯ */
+  overflow: hidden;
+  outline: none;
+}
+
+.carousel-track{
+  display: flex;
+  height: 100%;
+  will-change: transform;
+  transition: transform .48s ease;
+}
+
+.carousel-slide{
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* ถ้าอยากเห็นเต็มไม่ครอป เปลี่ยนเป็น contain */
+  user-select: none;
+  pointer-events: none;
+}
+
+/* ปุ่มซ้าย/ขวา */
+.carousel-btn{
+  position: absolute; top: 50%; translate: 0 -50%;
+  width: 40px; height: 40px; border-radius: 999px;
+  border: 1px solid var(--stroke);
+  background: rgba(13,17,23,.65);
+  color: var(--text); font-size: 24px; line-height: 1;
+  display: grid; place-items: center;
+  cursor: pointer;
+  transition: transform .12s ease, background .2s ease, border-color .2s ease;
+  z-index: 2;
+}
+.carousel-btn:hover{ transform: translateY(-1px); background:#0f1621; border-color:#3a90ff55; }
+.carousel-btn.prev{ left: 10px; }
+.carousel-btn.next{ right: 10px; }
+
+/* จุดสถานะ */
+.carousel-dots{
+  position: absolute; left: 50%; bottom: 10px; translate: -50% 0;
+  display: flex; gap: 8px; z-index: 2;
+}
+.carousel-dots button{
+  width: 8px; height: 8px; border-radius: 999px; border: 1px solid var(--stroke);
+  background: rgba(200,200,200,.25);
+  cursor: pointer;
+  transition: transform .12s ease, background .2s ease, border-color .2s ease;
+}
+.carousel-dots button[aria-current="true"]{
+  background: var(--accent);
+  border-color: #3a90ff66;
+  transform: scale(1.15);
+}
+
+/* มือถือ: ปุ่มใหญ่ขึ้นแตะง่าย */
+@media (max-width: 620px){
+  .carousel-btn{ width: 44px; height: 44px; font-size: 26px; }
+}
